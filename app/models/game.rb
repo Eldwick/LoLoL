@@ -1,4 +1,6 @@
 class Game < ActiveRecord::Base
+  attr_reader :score, :seconds_allocated, :correct_entries_ids
+  
   def initialize(entries)
     @score = 0
     @seconds_allocated = calculate_time(entries.count)
@@ -13,9 +15,6 @@ class Game < ActiveRecord::Base
     else
       false
     end
-  end
-
-  def create
   end
 
   private
