@@ -2,9 +2,12 @@
 
    <%= link_to "Random List", games_create_path(@random) %>
 
+<%= form_tag(lists_index_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], class: "col-md-3", placeholder: "Search Posts" %>
+<% end %>
 
 <% @lists.each do |list| %>
-   <tr>
-      <td><%= link_to "#{list.title}", games_create_path(list) %></td>
-   </tr>
+  <tr>
+    <td><%= link_to "#{list.title}", games_create_path(list) %></td>
+  </tr>
 <% end %>  

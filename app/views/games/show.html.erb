@@ -1,2 +1,7 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<h1><%= @list.title %></h1>
+<div id="score"></div>
+<%= content_tag "div", id: "timer", data: {time: @game.seconds_allocated.to_i} do %><% end %>
+<%= text_field_tag(:answer) %>
+<% @entries.each do |entry| %>
+  <%= div_for(entry, hidden:"true", value:entry.text) do %><%= entry.text %><% end %>
+<% end %>
