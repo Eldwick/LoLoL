@@ -1,4 +1,5 @@
 class ListOfList < ActiveRecord::Base
+   has_many :lists
 # run this from the rails console once and only once
 # to populate the DB
    def self.load
@@ -9,5 +10,5 @@ class ListOfList < ActiveRecord::Base
          ListOfList.create!(title: list)
       end
    end
-   
+ 
 end
