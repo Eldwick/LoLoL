@@ -10,5 +10,5 @@ class ListOfList < ActiveRecord::Base
          ListOfList.create!(title: list)
       end
    end
-   
+ 
 end
