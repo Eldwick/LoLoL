@@ -51,6 +51,7 @@ ready = function() {
   COUNTER.setCounter(setInterval(function(){
     decrementTime()
   }, 1000))
+
   $('#score').text(COUNTER.getScore())
   $('#answer').keypress(function(e) {
       if(e.which == 13) {
@@ -61,6 +62,7 @@ ready = function() {
             $(this).show( "slow" )
             COUNTER.addScore()
             $('#score').text(COUNTER.getScore())
+            $(this).data( "answered", true );
           }
           $('#answer').val("")
         })
@@ -71,11 +73,19 @@ ready = function() {
 function decrementTime() {
   COUNTER.decrementSecondsRemaining(1)
   var secondsRemaining = COUNTER.getSecondsRemaining()
-  if (secondsRemaining == 0){
+  if (secondsRemaining <= 0){
     clearInterval(COUNTER.getCounter());
     $('#timer').text("Time's up!");
     $('#answer').hide()
     $('#score').text("Your score is " + COUNTER.getScore() + ". Congrats!")
+    $('.entry').each(function() {
+      $(this).show()
+      if($(this).data('answered') != false){
+        $(this).css("background-color","green")
+      } else {
+        $(this).css("background-color","red")
+      }
+    })
   } else {
     var minutes = parseInt(secondsRemaining / 60),
         seconds = secondsRemaining % 60,

@@ -3,5 +3,5 @@
 <%= content_tag "div", id: "timer", data: {time: @game.seconds_allocated.to_i} do %><% end %>
 <%= text_field_tag(:answer) %>
 <% @entries.each do |entry| %>
-  <%= div_for(entry, hidden:"true", value:entry.text) do %><%= entry.text %><% end %>
+  <%= div_for(entry, hidden:"true", data:{answered: 'false'}) do %><%= entry.text %><% end %>
 <% end %>
