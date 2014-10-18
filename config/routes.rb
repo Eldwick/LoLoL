@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'games/show'
 
-  get 'games/create'
+  get 'games/create/:id', to: 'games#show', as: :games_create
 
   get 'lists/show'
 

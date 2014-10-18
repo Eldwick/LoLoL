@@ -1,2 +1,10 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/inde.html.erb</p>
+<h1>Lists Index</h1>
+
+   <%= link_to "Random List", games_create_path(@random) %>
+
+
+<% @lists.each do |list| %>
+   <tr>
+      <td><%= link_to "#{list.title}", games_create_path(list) %></td>
+   </tr>
+<% end %>  
