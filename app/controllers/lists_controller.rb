@@ -1,6 +1,10 @@
 class ListsController < ApplicationController
   def index
-   @lists = List.all
+    if params[:search]
+      @lists = List.search(params[:search])
+    else
+      @lists = List.all
+    end
    @random = List.random
   end
   
