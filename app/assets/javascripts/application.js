@@ -34,6 +34,9 @@ var COUNTER = function() {
       getSecondsRemaining: function() {
         return secondsRemaining
       },
+      resetScore: function(){
+        score = 0;
+      },
       addScore: function(){
         score++
       },
@@ -47,6 +50,8 @@ var COUNTER = function() {
 
 var ready;
 ready = function() {
+  clearInterval(COUNTER.getCounter())
+  COUNTER.resetScore()
   COUNTER.resetSecondsRemaining()
   COUNTER.setCounter(setInterval(function(){
     decrementTime()
