@@ -14,3 +14,51 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+var COUNTER = function() {
+  var counter,
+      secondsRemaining;
+    return {
+      setCounter: function(interval) {
+        counter = interval;
+      },
+      getCounter: function(){
+        return counter;
+      },
+      decrementSecondsRemaining: function(seconds) {
+        secondsRemaining -= seconds
+      },
+      resetSecondsRemaining: function() {
+        secondsRemaining = 3420;
+      },
+      getSecondsRemaining: function() {
+        return secondsRemaining
+      }
+  }
+}()
+
+var time = 30
+function decrementTime() {
+  time--
+  $('#timer').text(time)
+}
+
+
+var ready;
+ready = function() {
+  $('#timer').text(time)
+  setInterval(function(){decrementTime()}, 1000)
+  $('#answer').keypress(function(e) {
+      if(e.which == 13) {
+        answer = this.value
+        $('.entry').each(function(){
+          var entryAns = $(this).text();
+          if(answer == entryAns) {
+            $(this).show( "slow" )
+          }
+        })
+      }
+  });
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

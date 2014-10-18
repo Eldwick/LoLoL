@@ -1,5 +1,6 @@
 <h1>Games</h1>
-
+<%= content_tag "div", id: "timer", data: {time: @game.seconds_allocated} do %><% end %>
+<%= text_field_tag(:answer) %>
 <% @entries.each do |entry| %>
-  <%= entry.text %>
+  <%= div_for(entry, hidden:"true", value:entry.text) do %><%= entry.text %><% end %>
 <% end %>
