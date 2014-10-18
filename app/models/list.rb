@@ -22,11 +22,20 @@ class List < ActiveRecord::Base
       end
     end
 
-    def self.scrub
+    def self.list_of_scrub
       List.all.each do |list|
-         if List.wiki(list.title).content == nil
+         unless list.title.downcase.include? "list of"
             list.delete
+         else
+            puts list.id
          end
       end
+    end
+
+    def self.valid_link_scrub
+      List.all.each do |list|
+         List.wiki(list.title).content == nil ? list.delete : puts(list.id)
+      end
    end
+
 end
