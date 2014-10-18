@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'lists/index'
+
   get 'games/show'
 
   get 'games/create'
