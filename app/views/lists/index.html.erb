@@ -1,10 +1,10 @@
 <h1>Lists Index</h1>
 
-   <%= link_to "Random List", games_create_path %>
+   <%= link_to "Random List", games_create_path(@random) %>
 
 
-<% @lists.each do |lists| %>
+<% @lists.each do |list| %>
    <tr>
-      <td><%= link_to "#{lists.title}", games_create_path %></td>
+      <td><%= link_to "#{list.title}", games_create_path(list) %></td>
    </tr>
 <% end %>  
