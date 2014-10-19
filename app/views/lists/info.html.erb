@@ -6,9 +6,14 @@
               <span aria-hidden="true">&times;</span>
               <span class="sr-only">Close</span>
             </button>
-            <h4 class="modal-title">High Scores</h4>
+            <h4 class="modal-title"><%= @list.title %></h4>
         </div>
         <div class="modal-body">
+          <% if @list.game %>
+            <p><%= @list.title %> has a game! <%= link_to "Play Now!", games_create_path(@list.id)%></p>
+          <% else %>
+            <p><%= @list.title %> does not have a game yet... :( <%= link_to "But check out the wikipedia!", "http://en.wikipedia.org/wiki/#{@list.title.strip}" %></p>
+          <% end %>
         
       </div>
     </div>
