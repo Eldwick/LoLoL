@@ -1,12 +1,12 @@
-<%= form_tag destroy_multiple_lists_path, method: :delete do %>
-          <% @lists.each do |list| %>
-            <table>
-            <td><b><%= list.title %></b></td>
-            <td><%= check_box_tag "lists[]", list.id, checked: true %></td>
-            </table><br>
-               <% list.entries.each do |x|  %>
-                  <%= x.text %>,
-               <% end %></br>
-          <% end %>
-        <%= submit_tag "Delete selected" %>
-        <% end %>
+# <%= form_tag destroy_multiple_lists_path, method: :delete do %>
+#           <% @lists.each do |list| %>
+#             <table>
+#             <td><b><%= list.title %></b></td>
+#             <td><%= check_box_tag "lists[]", list.id, checked: true %></td>
+#             </table><br>
+#                <% list.entries.each do |x|  %>
+#                   <%= x.text %>,
+#                <% end %></br>
+#           <% end %>
+#         <%= submit_tag "Delete selected" %>
+#         <% end %>
