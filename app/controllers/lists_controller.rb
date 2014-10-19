@@ -5,9 +5,11 @@ class ListsController < ApplicationController
     else
       @lists = List.all
     end
-   @random = List.random
+    @random = List.random
+  end
+
+  def show
+    @lists = List.all
   end
   
-  def show
-  end
 end
