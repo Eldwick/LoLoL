@@ -1,5 +1,6 @@
 <h1><%= @list.title %></h1>
 <div id="score"></div>
+<%= content_tag "div", id: "list_id", data: {listid: @list.id} do %><% end %>
 <%= content_tag "div", id: "timer", data: {time: @game.seconds_allocated.to_i} do %><% end %>
 <%= text_field_tag(:answer) %>
 <% @entries.each do |entry| %>

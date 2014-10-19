@@ -13,7 +13,7 @@ var COUNTER = function() {
         secondsRemaining -= seconds;
       },
       resetSecondsRemaining: function() {
-        secondsRemaining = $('#timer').data('time');
+        secondsRemaining = 5 ;//$('#timer').data('time');;
       },
       getSecondsRemaining: function() {
         return secondsRemaining
@@ -30,8 +30,6 @@ var COUNTER = function() {
   }
 }()
 
-
-
 var ready;
 ready = function() {
   clearInterval(COUNTER.getCounter())
@@ -42,9 +40,9 @@ ready = function() {
   }, 1000))
 
   $('#score').text(COUNTER.getScore())
-  $('#answer').keypress(function(e) {
+  $('#answer').focus().keypress(function(e) {
       if(e.which == 13) {
-        answer = this.value
+        var answer = this.value
         $('.entry').each(function(){
           var entryAns = $(this).text();
           if(answer.toLowerCase() == entryAns.toLowerCase()) {
@@ -59,6 +57,9 @@ ready = function() {
   });
 }
 
+function updateScores(games) {
+}
+
 function decrementTime() {
   COUNTER.decrementSecondsRemaining(1)
   var secondsRemaining = COUNTER.getSecondsRemaining()
@@ -67,6 +68,10 @@ function decrementTime() {
     $('#timer').text("Time's up!");
     $('#answer').hide()
     $('#score').text("Your score is " + COUNTER.getScore() + ". Congrats!")
+    $.post("/games/newscore",{
+        score: COUNTER.getScore(),
+        list_id: $( '#list_id' ).data('listid')
+    } ).done(updateScores)
     $('.entry').each(function() {
       $(this).show()
       if($(this).data('answered') != false){
