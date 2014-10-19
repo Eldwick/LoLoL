@@ -5,9 +5,13 @@ Rails.application.routes.draw do
 
   get 'games/create/:id', to: 'games#show', as: :games_create
 
-  get 'lists/show'
+  resources :lists do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
 
-  get 'lists/index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
