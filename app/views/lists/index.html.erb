@@ -7,7 +7,7 @@
     <div class='listList' ng-controller="searchListCtrl" ng-init="init(<%= @lists %>)">
       <p>There are {{(lists|filter:list).length}} available lists. </p>
       <div ng-repeat="list in lists | filter:list | limitTo: 100" >
-        <a ng-href="/games/create/{{list.id}}" target="_blank">{{list.title}}</a>
+        <a href="#" class="listInfo" value={{list.id}} >{{list.title}}</a>
       </div>
     </div>
   </div>

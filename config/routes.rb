@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'games/newscore'
 
-  get 'lists/show'
+  get 'lists/show/:id' => 'lists#show'
 
 
 

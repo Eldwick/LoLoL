@@ -4,7 +4,14 @@ class ListsController < ApplicationController
   end
 
   def show
-    @lists = List.all
+    @list = List.find(params[:id])
+    @related_lists =  List.where(listoflist_id: @list.listoflist_id)
+    render 'info', :layout => false
   end
   
+  private
+
+  def list_params
+      params.require(:game).permit(:score, :list_id)
+  end
 end
