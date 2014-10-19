@@ -62,7 +62,7 @@ ready = function() {
 }
 
 function updateScores(games) {
-
+  debugger;
 }
 
 function endGame() {
