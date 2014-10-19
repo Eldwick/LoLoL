@@ -1,12 +1,13 @@
+@import "bootstrap";
 body {
    background-image: image-url('16_bit_bo_play_background_for_Lolol.png');
    background-repeat: repeat;
    font-family: 'Play', sans-serif;
+   padding-bottom: 60px;
 }
 header {
-   @extend .row;
-   font-family: 'Press Start 2P', cursive;
 
+   font-family: 'Press Start 2P', cursive;
    background-color: blue;
    height: 75px;
    text-align: center;
@@ -22,9 +23,33 @@ header {
          color: white;
       }
 }
-nav {
-   // @extend .navbar;
-   // @extend .navbar-default;
-   @extend .navbar-header;
+section {
+   @extend .container;
+      div{
+         @extend .row;
+         .window {
+            @extend .col-xs-offset-1;
+            @extend .col-xs-10;
+            height: 600px;
+            background-color: white;
+
+         }
+      }
 }
+
+// footer{
+//    @extend .navbar;
+//    @extend .navbar-default;
+//    @extend .navbar-fixed-bottom;
+//       div{
+//             @extend .container;
+//          ul{
+//                @extend .navbar-header;
+//             li{
+//                @extend .navbar-brand
+
+//             }
+//          }
+//       }
+// }
 
