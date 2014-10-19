@@ -10,9 +10,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-   <header><a href='/lists'>List of Lists of Lists</a></header>
-<%= yield %>
+   <header>
+      <div>
+         <a href='/lists'>List of Lists of Lists</a>
+      </div>
+      </header>
 
-<footer></footer>
+<section>
+      <div>
+         <div class="window">
+            <%= yield %>
+         </div>
+      </div>
+</section>
+
+<%= audio_tag "guile.wav", autoplay: true %>
 </body>
 </html>
