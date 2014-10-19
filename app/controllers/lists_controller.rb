@@ -1,11 +1,6 @@
 class ListsController < ApplicationController
   def index
-    if params[:search]
-      @lists = List.search(params[:search])
-    else
-      @lists = List.all
-    end
-    @random = List.random
+    @lists = List.limit(3500).to_json
   end
 
   def show
