@@ -1,0 +1,29 @@
+body {
+   background-image: image-url('lolol_background_pattern.png');
+   background-repeat: repeat;
+   font-family: 'Play', sans-serif;
+}
+header {
+   @extend .row;
+   font-family: 'Press Start 2P', cursive;
+
+   background-color: blue;
+   height: 75px;
+   text-align: center;
+      a {
+      font-size: 150%;
+      margin-top: 25px;
+      color: white;
+      text-shadow: 0.2em 0.1em #333;
+      }
+      a:hover{
+         text-decoration: none;
+         color: white;
+      }
+}
+nav {
+   // @extend .navbar;
+   // @extend .navbar-default;
+   @extend .navbar-header;
+}
+
