@@ -1,5 +1,6 @@
 class List < ActiveRecord::Base
-    has_many :entries
+    validates :title, uniqueness: true
+    has_many :entries, primary_key: :p_id
     belongs_to :listoflist
     scope :random, -> {offset(rand(List.count)).first}
     scope :search, -> (search) {where("lower(title) like ?", "%#{search.downcase}%").uniq}
