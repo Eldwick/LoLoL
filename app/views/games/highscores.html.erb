@@ -1,0 +1,29 @@
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="highscore_modal">
+  	<div class="modal-dialog modal-sm">
+    	<div class="modal-content">
+    		<div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">
+		        	<span aria-hidden="true">&times;</span>
+		        	<span class="sr-only">Close</span>
+		        </button>
+		        <h4 class="modal-title">High Scores</h4>
+		    </div>
+		    <div class="modal-body">
+				<table>
+					<th>
+						<td>Rank</td>
+						<td>High Score</td>
+					</th>
+					<% @highscores.each_with_index do |highscore, index| %>
+						<tr>
+							<td><%= index + 1 %></td>
+							<td><%= highscore.score %></td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<button></button>

@@ -1,10 +1,9 @@
-<% javascript_include_tag 'main.js' %>
 <div ng-app=LoLoL>
-  <input placeholder='Search' ng-model="searchText">
+  <input type='text' placeholder='Search' ng-model="searchText">
   <div ng-controller="searchListCtrl" ng-init="init(<%= @lists %>)">
     <a href="/test">{{text}}</a>
     <div ng-repeat="list in lists | filter:searchText">
       <a ng-href="http://www.wikipedia.com/wiki/{{list.title | titleFormatted}}" target="_blank">{{list.title}}</a>
     </div>
   </div>
-</div>
+</div> 

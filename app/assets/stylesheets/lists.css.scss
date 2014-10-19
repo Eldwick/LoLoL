@@ -1,3 +1,33 @@
 // Place all the styles related to the lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.lists {
+  @extend .container;
+  background-color: white;
+  height: 700px;
+}
+
+#topSearch {
+  @extend .form-group;
+  @extend .row;
+  padding: 20px;
+  #searchBox{
+    @extend .form-control;
+  }
+}
+
+.listList {
+    -webkit-column-count: 4; /* Chrome, Safari, Opera */
+    -moz-column-count: 4; /* Firefox */
+    column-count: 4;
+
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+
+    -webkit-column-rule: 4px outset blue; /* Chrome, Safari, Opera */
+    -moz-column-rule: 4px outset blue; /* Firefox */
+    column-rule: 4px outset blue;
+}
