@@ -55,16 +55,18 @@ ready = function() {
         })
       }
   });
+    $( '#give_up' ).on('click', function(){
+      endGame();
+      $( '#give_up' ).hide();
+    })
 }
 
 function updateScores(games) {
+
 }
 
-function decrementTime() {
-  COUNTER.decrementSecondsRemaining(1)
-  var secondsRemaining = COUNTER.getSecondsRemaining()
-  if (secondsRemaining <= 0){
-    clearInterval(COUNTER.getCounter());
+function endGame() {
+      clearInterval(COUNTER.getCounter());
     $('#timer').text("Time's up!");
     $('#answer').hide()
     $('#score').text("Your score is " + COUNTER.getScore() + ". Congrats!")
@@ -80,6 +82,13 @@ function decrementTime() {
         $(this).css("background-color","red")
       }
     })
+  }
+
+function decrementTime() {
+  COUNTER.decrementSecondsRemaining(1)
+  var secondsRemaining = COUNTER.getSecondsRemaining()
+  if (secondsRemaining <= 0){
+    endGame();
   } else {
     var minutes = parseInt(secondsRemaining / 60),
         seconds = secondsRemaining % 60,
@@ -89,3 +98,4 @@ function decrementTime() {
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
+

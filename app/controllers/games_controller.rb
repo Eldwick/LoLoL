@@ -11,7 +11,7 @@ respond_to :html, :js
   def newscore
     Game.create(score: params[:score], list_id: params[:list_id])
 
-    @game = Game.where(list_id: params[:list_id])
+    @game = Game.where(list_id: params[:list_id]).limit(5)
 
     render json: @game
 
