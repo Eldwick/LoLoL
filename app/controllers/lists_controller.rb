@@ -10,7 +10,6 @@ class ListsController < ApplicationController
 
   def show
     @lists = List.all
-    @entries = Entry.all
   end
 
   def destroy_multiple
