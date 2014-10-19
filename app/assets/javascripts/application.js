@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require ../../../vendor/assets/javascripts/angular/angular.js
 //= require_tree .

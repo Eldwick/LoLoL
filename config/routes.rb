@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'lists#splash'
-
+  get 'main/index'
   get 'games/show'
 
   get 'games/create/:id', to: 'games#show', as: :games_create
