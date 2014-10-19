@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_reader :score, :seconds_allocated, :correct_entries_ids
+  attr_reader :seconds_allocated, :correct_entries_ids
 
   def setup(entries)
     @score = 0

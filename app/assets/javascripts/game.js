@@ -62,7 +62,10 @@ ready = function() {
 }
 
 function updateScores(games) {
-  debugger;
+  $('body').append(games)
+  $('#highscore_modal').modal('show').on('hidden.bs.modal',function(){
+    $('#highscore_modal').remove();
+  });
 }
 
 function endGame() {

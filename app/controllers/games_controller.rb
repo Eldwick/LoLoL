@@ -10,11 +10,8 @@ respond_to :html, :js
 
   def newscore
     Game.create(score: params[:score], list_id: params[:list_id])
-
-
-    @game = Game.where(list_id: params[:list_id]).order('score DESC').limit(5)
-
-    render json: @game
+    @highscores = Game.where(list_id: params[:list_id]).order('score DESC').limit(5)
+    render 'highscores', :layout => false
 
   end
 
