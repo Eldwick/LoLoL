@@ -32,15 +32,16 @@ var COUNTER = function() {
 
 var ready;
 ready = function() {
-  clearInterval(COUNTER.getCounter())
-  COUNTER.resetScore()
-  COUNTER.resetSecondsRemaining()
-  COUNTER.setCounter(setInterval(function(){
-    decrementTime()
-  }, 1000))
 
   $('#score').text(COUNTER.getScore())
-  $('#answer').focus().keypress(function(e) {
+  $('#answer').focus().one('keypress', function(){
+      clearInterval(COUNTER.getCounter())
+      COUNTER.resetScore()
+      COUNTER.resetSecondsRemaining()
+      COUNTER.setCounter(setInterval(function(){
+        decrementTime()
+      }, 1000))
+    }).keypress(function(e) {
       if(e.which == 13) {
         var answer = this.value
         $('.entry').each(function(){
