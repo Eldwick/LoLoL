@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require ../../../vendor/assets/javascripts/angular/angular.js
+//= require ../../../vendor/assets/javascripts/bootstrap.min.js
 //= require_tree .

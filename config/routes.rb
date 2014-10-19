@@ -5,7 +5,15 @@ Rails.application.routes.draw do
 
   get 'games/create/:id', to: 'games#show', as: :games_create
 
+
   resources :lists
+
+
+  post 'games/newscore'
+
+  get 'games/newscore'
+
+  get 'lists/show'
 
 
 

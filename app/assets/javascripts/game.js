@@ -13,7 +13,7 @@ var COUNTER = function() {
         secondsRemaining -= seconds;
       },
       resetSecondsRemaining: function() {
-        secondsRemaining = $('#timer').data('time');
+        secondsRemaining = 5 ;//$('#timer').data('time');;
       },
       getSecondsRemaining: function() {
         return secondsRemaining
@@ -30,21 +30,20 @@ var COUNTER = function() {
   }
 }()
 
-
-
 var ready;
 ready = function() {
-  clearInterval(COUNTER.getCounter())
-  COUNTER.resetScore()
-  COUNTER.resetSecondsRemaining()
-  COUNTER.setCounter(setInterval(function(){
-    decrementTime()
-  }, 1000))
 
   $('#score').text(COUNTER.getScore())
-  $('#answer').keypress(function(e) {
+  $('#answer').focus().one('keypress', function(){
+      clearInterval(COUNTER.getCounter())
+      COUNTER.resetScore()
+      COUNTER.resetSecondsRemaining()
+      COUNTER.setCounter(setInterval(function(){
+        decrementTime()
+      }, 1000))
+    }).keypress(function(e) {
       if(e.which == 13) {
-        answer = this.value
+        var answer = this.value
         $('.entry').each(function(){
           var entryAns = $(this).text();
           if(answer.toLowerCase() == entryAns.toLowerCase()) {
@@ -57,16 +56,28 @@ ready = function() {
         })
       }
   });
+    $( '#give_up' ).on('click', function(){
+      endGame();
+      $( '#give_up' ).hide();
+    })
 }
 
-function decrementTime() {
-  COUNTER.decrementSecondsRemaining(1)
-  var secondsRemaining = COUNTER.getSecondsRemaining()
-  if (secondsRemaining <= 0){
-    clearInterval(COUNTER.getCounter());
+function updateScores(games) {
+  $('body').append(games)
+  $('#highscore_modal').modal('show').on('hidden.bs.modal',function(){
+    $('#highscore_modal').remove();
+  });
+}
+
+function endGame() {
+      clearInterval(COUNTER.getCounter());
     $('#timer').text("Time's up!");
     $('#answer').hide()
     $('#score').text("Your score is " + COUNTER.getScore() + ". Congrats!")
+    $.post("/games/newscore",{
+        score: COUNTER.getScore(),
+        list_id: $( '#list_id' ).data('listid')
+    } ).done(updateScores)
     $('.entry').each(function() {
       $(this).show()
       if($(this).data('answered') != false){
@@ -75,6 +86,13 @@ function decrementTime() {
         $(this).css("background-color","red")
       }
     })
+  }
+
+function decrementTime() {
+  COUNTER.decrementSecondsRemaining(1)
+  var secondsRemaining = COUNTER.getSecondsRemaining()
+  if (secondsRemaining <= 0){
+    endGame();
   } else {
     var minutes = parseInt(secondsRemaining / 60),
         seconds = secondsRemaining % 60,
@@ -84,3 +102,4 @@ function decrementTime() {
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
