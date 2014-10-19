@@ -3,26 +3,27 @@ body {
    background-image: image-url('16_bit_bo_play_background_for_Lolol.png');
    background-repeat: repeat;
    font-family: 'Play', sans-serif;
-   padding-bottom: 60px;
+   padding-bottom: 10px;
 }
 header {
 
    font-family: 'Press Start 2P', cursive;
    background-color: blue;
-   height: 75px;
+   height: 100px;
    text-align: center;
-      a {
-      font-size: 150%;
-      margin-top: 25px;
-      color: white;
-      text-shadow: 0.2em 0.1em #333;
-      vertical-align: center;
-      }
-      a:hover{
-         text-decoration: none;
+      div{
+         padding-top: 30px;
+         a {
+         font-size: 200%;
          color: white;
+         text-shadow: 0.2em 0.1em #333;
+         }
+         a:hover{
+            text-decoration: none;
+            color: white;
+         }
       }
-}
+}  
 section {
    @extend .container;
       div{
