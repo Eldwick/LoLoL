@@ -1,0 +1,40 @@
+#Hexadecimal numbers for the website:
+#hex for main banner (blue)
+0027d1
+
+#hex for "List of Lists of Lists" text in the banner, the text in the nav bar,
+#and the text in the "Play" button  (white)
+e8e8e8
+#hex for the "List of Lists of Lists" dropshadow (dark-blue)
+e8e8e8
+#hex for the "Play" button text dropshadow (dark-grey)
+3a3a3a
+
+#hex for the nav bar and the "Play" button on the homepage DIV (red)
+dc0b0b
+
+#hex for the main DIV on the homepage (yellow)
+ffd800
+
+
+
+
+#Font to use for main text bodies (non-header text)
+@import url(http://fonts.googleapis.com/css?family=Play:400,700);
+font-family: 'Play', sans-serif;
+
+#Font to use for header text (headlines, titles)
+font-family: 'Press Start 2P', cursive;
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
+
+
+
+
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Doppio+One);
+font-family: 'VT323', ;
+font-family: 'Stalinist One', cursive;
