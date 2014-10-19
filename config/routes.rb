@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'lists#index'
+  get 'main/index'
+
+  root 'main#index'
 
   get 'games/show'
 

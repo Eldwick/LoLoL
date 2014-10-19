@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require ../../../vendor/assets/javascripts/angular/angular.js
+//= require ../../../vendor/assets/javascripts/angular/angular-ui-router.js
+

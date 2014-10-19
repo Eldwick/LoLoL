@@ -1,0 +1,12 @@
+<div ng-app=myApp>
+  <div ng-controller="GreetingController">
+    <h1>{{ title }}</h1>
+  </div>
+  <input placeholder='Search' ng-model="searchText">
+  <div ng-controller="itemsControllerNgInit" ng-init="init(<%= @lists %>)">
+    <a href="/test">testy test test</a>
+    <div ng-repeat="list in lists | filter:searchText">
+      <a ng-href="http://www.wikipedia.com/wiki/{{list.title | titleFormatted}}" target="_blank">{{list.title}}</a>
+    </div>
+  </div>
+</div>
