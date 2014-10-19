@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ListOfListsOfLists</title>
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application', controller_name %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>ListOfListsOfLists</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application', controller_name %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
 
-<%= yield %>
+    </header>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
