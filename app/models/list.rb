@@ -34,7 +34,15 @@ class List < ActiveRecord::Base
 
     def self.valid_link_scrub
       List.all.each do |list|
-         List.wiki(list.title).content == nil ? list.delete : puts(list.id)
+         List.wiki(list.title).links == nil ? list.delete : puts(list.id)
+      end
+   end
+
+   def self.nuke(text)
+      List.all.each do |list|
+         if list.title.downcase.include? "#{text}"
+            list.delete
+         end
       end
    end
 

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gem 'wikipedia-client'
 gem 'pry'
 gem 'rails_12factor', group: :production
+gem 'seed_dump', group: :development
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
