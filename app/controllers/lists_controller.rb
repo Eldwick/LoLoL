@@ -11,15 +11,5 @@ class ListsController < ApplicationController
   def show
     @lists = List.all
   end
-
-  def destroy_multiple
-
-    List.destroy(params[:lists])
-
-    respond_to do |format|
-      format.html { redirect_to lists_show_path }
-      format.json { head :no_content }
-    end
-
-  end
+  
 end
