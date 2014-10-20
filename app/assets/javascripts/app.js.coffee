@@ -1,0 +1,2 @@
+
+@restauranteur = angular.module('LoLoL', [])

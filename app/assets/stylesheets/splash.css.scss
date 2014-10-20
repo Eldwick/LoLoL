@@ -1,0 +1,40 @@
+@import 'bootstrap';
+.left{
+   float: left;
+
+   .button{
+      font-family: 'Press Start 2P', cursive;
+      background-color: red;
+      height: 50px;
+      width: 100px;
+      border-radius: 10px;
+      text-shadow: 0.2em 0.1em #333;
+      margin-top: 300px;
+      margin-left: 500%;
+      .text{
+         color: black;
+      }
+      a{
+         color: white;
+         p{
+            text-align: center;
+            padding-top: 15px;
+         }
+      }
+      a:hover{
+         color: white;
+         text-decoration: none;
+      }
+
+   }
+}
+.logo{
+   height:600px;
+   float: right;
+}
+
+#splash {
+   @extend .container;
+   height: 650px;
+   background-color: white;
+}

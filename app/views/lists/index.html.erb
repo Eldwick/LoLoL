@@ -1,13 +1,14 @@
-<h1>Lists Index</h1>
-
-   <%= link_to "Random List", games_create_path(@random) %>
-
-<%= form_tag(lists_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], class: "col-md-3", placeholder: "Search Posts" %>
-<% end %>
-
-<% @lists.each do |list| %>
-  <tr>
-    <td><%= link_to "#{list.title}", games_create_path(list) %></td>
-  </tr>
-<% end %>  
+<div class="lists">
+  <div ng-app=LoLoL>
+    <div id="topSearch">
+      <input id='searchBox' placeholder='Search' ng-model="list.title">
+      Has Game: <input type="checkbox" ng-model="list.game">
+    </div>
+    <div class='listList' ng-controller="searchListCtrl" ng-init="init(<%= @lists %>)">
+      <p>There are {{(lists|filter:list).length}} available lists. </p>
+      <div ng-repeat="list in lists | filter:list | limitTo: 100" >
+        <a href="#" class="listInfo" value={{list.id}} >{{list.title}}</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="highscore_modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title"><%= @list.title %></h4>
+        </div>
+        <div class="modal-body">
+          <% if @list.game %>
+            <p><%= @list.title %> has a game! <%= link_to "Play Now!", games_create_path(@list.id)%></p>
+          <% else %>
+            <p><%= @list.title %> does not have a game yet... :( <%= link_to "But check out the wikipedia!", "http://en.wikipedia.org/wiki/#{@list.title.strip}" %></p>
+          <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<button></button>

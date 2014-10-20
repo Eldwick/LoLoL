@@ -12,11 +12,15 @@ Rails.application.routes.draw do
 
   get 'games/newscore'
 
+
   post 'games/updatescore'
 
   get 'games/updatescore'
 
   get 'lists/show'
+
+  get 'lists/show/:id' => 'lists#show'
+
 
 
 

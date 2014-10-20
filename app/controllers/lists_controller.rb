@@ -1,15 +1,17 @@
 class ListsController < ApplicationController
   def index
-    if params[:search]
-      @lists = List.search(params[:search])
-    else
-      @lists = List.all
-    end
-    @random = List.random
+    @lists = List.limit(3500).to_json
   end
 
   def show
-    @lists = List.all
+    @list = List.find(params[:id])
+    @related_lists =  List.where(listoflist_id: @list.listoflist_id)
+    render 'info', :layout => false
   end
   
+  private
+
+  def list_params
+      params.require(:game).permit(:score, :list_id)
+  end
 end
