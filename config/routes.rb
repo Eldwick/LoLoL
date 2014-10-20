@@ -8,10 +8,13 @@ Rails.application.routes.draw do
 
   resources :lists
 
-
   post 'games/newscore'
 
   get 'games/newscore'
+
+  post 'games/updatescore'
+
+  get 'games/updatescore'
 
   get 'lists/show'
 

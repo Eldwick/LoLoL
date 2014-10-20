@@ -13,7 +13,7 @@ var COUNTER = function() {
         secondsRemaining -= seconds;
       },
       resetSecondsRemaining: function() {
-        secondsRemaining = 5 ;//$('#timer').data('time');;
+        secondsRemaining = $('#timer').data('time');
       },
       getSecondsRemaining: function() {
         return secondsRemaining
@@ -63,7 +63,16 @@ ready = function() {
 }
 
 function updateScores(games) {
-  $('body').append(games)
+  $('body').append(games);
+  $( '#saveinitials' ).on('click', function(){
+      $.post("/games/updatescore",{
+        game_id: $('#game_id').val(),
+        yourinitials: $( '#yourinitials' ).val()
+      }).done(function(){
+        $('#saveinitials').remove();
+        $('#yourinitials').replaceWith($( '#yourinitials' ).val())
+      })
+    });
   $('#highscore_modal').modal('show').on('hidden.bs.modal',function(){
     $('#highscore_modal').remove();
   });
@@ -73,7 +82,7 @@ function endGame() {
       clearInterval(COUNTER.getCounter());
     $('#timer').text("Time's up!");
     $('#answer').hide()
-    $('#score').text("Your score is " + COUNTER.getScore() + ". Congrats!")
+    // $('#score').text("Your score is " + COUNTER.getScore() + ".")
     $.post("/games/newscore",{
         score: COUNTER.getScore(),
         list_id: $( '#list_id' ).data('listid')
