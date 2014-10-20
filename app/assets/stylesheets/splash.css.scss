@@ -32,3 +32,9 @@
    height:600px;
    float: right;
 }
+
+#splash {
+   @extend .container;
+   height: 650px;
+   background-color: white;
+}

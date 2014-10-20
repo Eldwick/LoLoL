@@ -24,19 +24,7 @@ header {
          }
       }
 }  
-section {
-   @extend .container;
-      div{
-         @extend .row;
-         .window {
-            // @extend .col-xs-offset-1;
-            // @extend .col-xs-10;
-            height: 600px;
-            background-color: white;
 
-         }
-      }
-}
 
 // footer{
 //    @extend .navbar;
