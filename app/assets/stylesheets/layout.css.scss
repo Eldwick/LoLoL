@@ -5,38 +5,27 @@ body {
    font-family: 'Play', sans-serif;
    padding-bottom: 10px;
 }
-header {
 
+header {
    font-family: 'Press Start 2P', cursive;
    background-color: blue;
    height: 100px;
    text-align: center;
-      div{
-         padding-top: 30px;
-         a {
-         font-size: 200%;
+   div{
+      padding-top: 30px;
+      a {
+      font-size: 200%;
+      color: white;
+      text-shadow: 0.2em 0.1em #333;
+      }
+      a:hover{
+         text-decoration: none;
          color: white;
-         text-shadow: 0.2em 0.1em #333;
-         }
-         a:hover{
-            text-decoration: none;
-            color: white;
-         }
       }
+   }
 }  
-section {
-   @extend .container;
-      div{
-         @extend .row;
-         .window {
-            // @extend .col-xs-offset-1;
-            // @extend .col-xs-10;
-            height: 600px;
-            background-color: white;
 
-         }
-      }
-}
+
 
 // footer{
 //    @extend .navbar;
