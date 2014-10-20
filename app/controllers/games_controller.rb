@@ -10,15 +10,22 @@ respond_to :html, :js
   end
 
   def newscore
-    Game.create(score: params[:score], list_id: params[:list_id])
+    @yourgame = Game.create(score: params[:score], list_id: params[:list_id])
     @highscores = Game.where(list_id: params[:list_id]).order('score DESC').limit(5)
-    render 'highscores', :layout => false
 
+    render 'highscores', :layout => false
+  end
+
+  def updatescore
+    game = Game.find(params[:game_id])
+    game.update(yourinitials: params[:yourinitials])
+
+    render nothing: true
   end
 
 private
   def game_params
-    	params.require(:game).permit(:score, :list_id)
+    	params.require(:game).permit(:score, :list_id, :yourinitials, :game_id)
   end
 
 end

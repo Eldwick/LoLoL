@@ -1,16 +1,24 @@
 <div class='container'>
 	<h1><%= @list.title %></h1>
-	Score:<div id="score"></div>
+
+	<div>
+		Score:<span id="score"></span>
+	</div>
+	<div>
+		Time Remaining:
+		<%= content_tag "span", id: "timer", data: {time: @game.seconds_allocated.to_i} do %><% end %>
+	</div>
+
 	<%= content_tag "div", id: "list_id", data: {listid: @list.id} do %><% end %>
-	<%= content_tag "div", id: "timer", data: {time: @game.seconds_allocated.to_i} do %><% end %>
 	<%= text_field_tag(:answer) %>
 	<% @entries.each do |entry| %>
 	  <%= div_for(entry, hidden:"true", data:{answered: 'false'}) do %><%= entry.text %><% end %>
 	<% end %>
-	<br>
-	<%= link_to "Back", lists_path %>
-	<br>
-	<%= link_to "Restart Game", games_create_path(@list) %>
-
-	<button id="give_up">Give up!</button>
+	<div>
+		<button id="give_up">Give up!</button>
+	</div>
+	<div>
+			<%= link_to "Back", lists_path %>
+			<%= link_to "Restart Game", games_create_path(@list) %>
+	</div>
 </div>
